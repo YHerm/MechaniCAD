@@ -32,4 +32,3 @@ function handleDirectoryComparison() {
 }
 
 document.getElementById('button')?.addEventListener('click', handleDirectoryComparison);
-
