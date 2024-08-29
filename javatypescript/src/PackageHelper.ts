@@ -22,13 +22,14 @@ function getTitledContent(directory: HTMLInputElement): string {
     return `<p>${getDirectoryName(files)} Package:</p>${getContent(files)}`
 }
 
-function handleDirectoryComparison() {
-    const directory = document.getElementById('Package') as HTMLInputElement;
-
-    const resultDiv = document.getElementById('result') as HTMLDivElement;
-    resultDiv.innerHTML = '';
-
-    resultDiv.innerHTML += getTitledContent(directory);
+function showDirectory(directoryInput: HTMLInputElement, textBlock: HTMLDivElement) {
+    textBlock.innerHTML = '';
+    textBlock.innerHTML += getTitledContent(directoryInput);
 }
 
-document.getElementById('button')?.addEventListener('click', handleDirectoryComparison);
+document.getElementById('button')?.addEventListener('click', 
+    () => showDirectory(
+        document.getElementById('Package') as HTMLInputElement,
+        document.getElementById('result') as HTMLDivElement
+    )
+);
