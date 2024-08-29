@@ -1,0 +1,15 @@
+C:\Users\Yoav\MechaniCAD\csharp\bin\Debug\net7.0\csharp.exe
+C:\Users\Yoav\MechaniCAD\csharp\bin\Debug\net7.0\csharp.deps.json
+C:\Users\Yoav\MechaniCAD\csharp\bin\Debug\net7.0\csharp.runtimeconfig.json
+C:\Users\Yoav\MechaniCAD\csharp\bin\Debug\net7.0\csharp.dll
+C:\Users\Yoav\MechaniCAD\csharp\bin\Debug\net7.0\csharp.pdb
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.csproj.AssemblyReference.cache
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.AssemblyInfoInputs.cache
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.AssemblyInfo.cs
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.csproj.CoreCompileInputs.cache
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.dll
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\refint\csharp.dll
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.pdb
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\csharp.genruntimeconfig.cache
+C:\Users\Yoav\MechaniCAD\csharp\obj\Debug\net7.0\ref\csharp.dll

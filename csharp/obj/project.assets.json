@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yoav\\MechaniCAD\\csharp\\MechaniCADC#.csproj",
-      "projectName": "MechaniCADC#",
-      "projectPath": "C:\\Users\\Yoav\\MechaniCAD\\csharp\\MechaniCADC#.csproj",
+      "projectUniqueName": "C:\\Users\\Yoav\\MechaniCAD\\csharp\\csharp.csproj",
+      "projectName": "csharp",
+      "projectPath": "C:\\Users\\Yoav\\MechaniCAD\\csharp\\csharp.csproj",
       "packagesPath": "C:\\Users\\Yoav\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Yoav\\MechaniCAD\\csharp\\obj\\",
       "projectStyle": "PackageReference",
