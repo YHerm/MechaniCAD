@@ -2,6 +2,13 @@ function isEmpty(files: FileList | null): boolean {
     return !files || files.length === 0;
 }
 
+export function getFileArray(files: FileList | null): string[] {
+    if (isEmpty(files)) {
+        return [];
+    }
+    return Array.from(files!).map(file => file.webkitRelativePath || file.name);
+}
+
 function getContent(files: FileList): string {
     const fileList = Array.from(files!).map(file => file.webkitRelativePath || file.name);
     return `<ul>${fileList.map(file => `<li>${file}</li>`).join('')}</ul>`;
@@ -14,7 +21,7 @@ function getDirectoryName(files: FileList): string {
     return pathParts.length > 1 ? pathParts[0] : 'Unknown Directory';
 }
 
-function getTitledContent(directory: HTMLInputElement): string {
+export function getTitledContent(directory: HTMLInputElement): string {
     if(isEmpty(directory.files)){
         return 'Empty Package'
     }
