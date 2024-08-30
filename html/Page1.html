@@ -10,18 +10,24 @@
     <h1>Package Comparison</h1>
     <form id="fileForm">
         <label for="Package1">Select Package 1:</label>
-        <input type="file" id="Package1" webkitdirectory directory multiple />
-
-        <label for="Package2">Select Package 2:</label>
-        <input type="file" id="Package2" webkitdirectory directory multiple />
+        <button type="button" id="openDialog1">Select Package 1 Directory</button>
+        <input type="text" id="Package1" readonly />
+        
         <br/><br/>
-
-        <button type="button" id="button">Show</button>
+        
+        <label for="Package2">Select Package 2:</label>
+        <button type="button" id="openDialog2">Select Package 2 Directory</button>
+        <input type="text" id="Package2" readonly />
+        
+        <br/><br/>
+        
+        <button type="button" id="compareButton">Compare Packages</button>
+        <br/><br/>
+        
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="middleButtonContainer"></div>
     </form>
-    <div id="result1"></div>
-    <div id="result2"></div>
-    <div id="middleButtonContainer"></div>
-
     <script src="../javatypescript/dist/Page1Show.js" type="module"></script>
 </body>
 </html>
