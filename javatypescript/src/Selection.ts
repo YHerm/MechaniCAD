@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     if (!window.myAPI) {
         console.error('myAPI is not exposed in the global window object.');
         return;

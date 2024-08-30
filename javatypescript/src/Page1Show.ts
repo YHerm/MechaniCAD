@@ -42,6 +42,8 @@ function comparePackages(locals: File[], remotes: File[]): { localUpdated: File[
     const processedRemotes: Set<string> = new Set();
 
     for (const localFile of locals) {
+        console.log(`Local File: ${localFile.name}, Size: ${localFile.size} bytes`);
+
         const remoteFile = remotes.find(file => file.name === localFile.name);
         if (remoteFile) {
             if (localFile.lastModified > remoteFile.lastModified) {
@@ -59,6 +61,7 @@ function comparePackages(locals: File[], remotes: File[]): { localUpdated: File[
 
     for (const remoteFile of remotes) {
         if (!processedRemotes.has(remoteFile.name)) {
+            console.log(`Remote File: ${remoteFile.name}, Size: ${remoteFile.size} bytes`);
             remoteUpdated.push(remoteFile);
         }
     }
