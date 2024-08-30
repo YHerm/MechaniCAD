@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     fileListDiv.innerHTML = files.map(fileName => `
         <div>
-            <input type="checkbox" id="${fileName}" checked />
+            <input type="checkbox" id="${fileName}" />
             <label for="${fileName}">${fileName}</label>
         </div>
     `).join('');

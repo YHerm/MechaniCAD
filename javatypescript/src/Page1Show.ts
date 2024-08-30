@@ -85,19 +85,29 @@ async function readFilesFromDirectory(directoryPath: string): Promise<File[]> {
     }
 }
 
-// Function to create a button element
 function createButton(label: string, container: HTMLElement, type: string, fileList: File[]): void {
     const button: HTMLButtonElement = document.createElement('button');
     button.textContent = label;
-    button.onclick = () => {
+
+    button.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default behavior
         const queryString = new URLSearchParams({
             type,
             files: JSON.stringify(fileList.map(file => file.name))
         }).toString();
-        window.location.href = `selection.html?${queryString}`;
-    };
+
+        // Adjust path as necessary
+        const url = `../html/selection.html?${queryString}`;
+        console.log('Navigating to:', url); // Debug line to check URL
+
+        // Navigate to the selection page
+        window.location.assign(url);
+    });
+
     container.appendChild(button);
 }
+
+
 
 // Function to compare files in two packages
 function comparePackages(locals: File[], remotes: File[]): { localUpdated: File[], remoteUpdated: File[] } {
