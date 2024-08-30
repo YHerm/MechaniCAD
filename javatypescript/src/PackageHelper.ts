@@ -29,7 +29,7 @@ export function getTitledContent(directory: HTMLInputElement): string {
     return `<p>${getDirectoryName(files)} Package:</p>${getContent(files)}`
 }
 
-export function showDirectory(directoryInput: HTMLInputElement, textBlock: HTMLDivElement) {
+function showDirectory(directoryInput: HTMLInputElement, textBlock: HTMLDivElement) {
     textBlock.innerHTML = '';
     textBlock.innerHTML += getTitledContent(directoryInput);
 }

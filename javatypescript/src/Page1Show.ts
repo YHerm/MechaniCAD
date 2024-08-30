@@ -1,31 +1,32 @@
-import { getTitledContent } from './PackageHelper.js';
-import { getFileArray } from './PackageHelper.js';
 
-function handleFileComparison() {
+function handlePackageComparison() {
     const package1Input = document.getElementById('Package1') as HTMLInputElement;
     const package2Input = document.getElementById('Package2') as HTMLInputElement;
-    const resultDiv1 = document.getElementById('result1') as HTMLDivElement;
-    const resultDiv2 = document.getElementById('result2') as HTMLDivElement;
+    const result1Div = document.getElementById('result1') as HTMLDivElement;
+    const result2Div = document.getElementById('result2') as HTMLDivElement;
+    const middleButtonContainer = document.getElementById('middleButtonContainer') as HTMLDivElement;
 
-    resultDiv1.innerHTML = getTitledContent(package1Input);
-    resultDiv2.innerHTML = getTitledContent(package2Input);
+    const package1Files = Array.from(package1Input.files || []);
+    const package2Files = Array.from(package2Input.files || []);
 
-    const package1Files = getFileArray(package1Input.files);
-    const package2Files = getFileArray(package2Input.files);
+    result1Div.innerHTML = `<ul>${package1Files.map(file => `<li>${file.name}</li>`).join('')}</ul>`;
+    result2Div.innerHTML = `<ul>${package2Files.map(file => `<li>${file.name}</li>`).join('')}</ul>`;
 
-    const buttonDiv = document.createElement('div');
-    const button = document.createElement('button');
+    middleButtonContainer.innerHTML = '';
 
     if (package1Files.length > package2Files.length) {
-        button.textContent = 'p1';
+        createButton('p1', middleButtonContainer);
     } else if (package2Files.length > package1Files.length) {
-        button.textContent = 'p2';
+        createButton('p2', middleButtonContainer);
     } else {
-        button.textContent = 'Equal';
+        middleButtonContainer.innerHTML = '<p>Both packages have the same number of files.</p>';
     }
-
-    buttonDiv.appendChild(button);
-    resultDiv1.appendChild(buttonDiv);
 }
 
-document.getElementById('button')?.addEventListener('click', handleFileComparison);
+function createButton(label: string, container: HTMLElement) {
+    const button = document.createElement('button');
+    button.textContent = label;
+    container.appendChild(button);
+}
+
+document.getElementById('button')?.addEventListener('click', handlePackageComparison);
