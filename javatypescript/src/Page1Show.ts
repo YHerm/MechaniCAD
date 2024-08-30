@@ -52,6 +52,9 @@ async function handlePackageComparison(): Promise<void> {
         const package1Files = await readFilesFromDirectory(package1Path);
         const package2Files = await readFilesFromDirectory(package2Path);
 
+        const result = await window.myAPI.setPackagePaths({ package1Path, package2Path });
+        console.log(result);
+
         const result1Div = document.getElementById('result1') as HTMLDivElement;
         const result2Div = document.getElementById('result2') as HTMLDivElement;
         const middleButtonContainer = document.getElementById('middleButtonContainer') as HTMLDivElement;

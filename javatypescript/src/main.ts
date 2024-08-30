@@ -64,10 +64,11 @@ ipcMain.handle('copy-files', async (event, { files, type }: { files: string[], t
             throw new Error('Package paths are not set.');
         }
 
-        const targetDir = type === 'localUpdated' ? package1Path : package2Path;
+        const currentDir = type === 'localUpdated' ? package1Path : package2Path;
+        const targetDir = type === 'localUpdated' ? package2Path : package1Path;
 
         for (const fileName of files) {
-            const sourcePath = path.join(__dirname, fileName);
+            const sourcePath = path.join(currentDir, fileName);
             const targetPath = path.join(targetDir, fileName);
             await copyFile(sourcePath, targetPath);
         }
