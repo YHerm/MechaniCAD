@@ -13,33 +13,35 @@ function handlePackageComparison(): void {
 
     middleButtonContainer.innerHTML = '';
 
-    if (package1Files.length > package2Files.length) {
-        createButton('p1', middleButtonContainer);
-    } else if (package2Files.length > package1Files.length) {
-        createButton('p2', middleButtonContainer);
-    } else {
-        middleButtonContainer.innerHTML = '<p>Both packages have the same number of files.</p>';
-    }
+    // Call comparePackages and get the updated file arrays
+    const { localUpdated, remoteUpdated } = comparePackages(package1Files, package2Files);
 
-    comparePackages(package1Files, package2Files)
+    // Create buttons for LocalUpdated and RemoteUpdated with file counts and navigation
+    createButton(`Local Updated: ${localUpdated.length}`, middleButtonContainer, 'localUpdated', localUpdated);
+    createButton(`Remote Updated: ${remoteUpdated.length}`, middleButtonContainer, 'remoteUpdated', remoteUpdated);
 }
 
-function createButton(label: string, container: HTMLElement): void {
+function createButton(label: string, container: HTMLElement, type: string, fileList: File[]): void {
     const button: HTMLButtonElement = document.createElement('button');
     button.textContent = label;
+    button.onclick = () => {
+        const queryString = new URLSearchParams({
+            type,
+            files: JSON.stringify(fileList.map(file => file.name))
+        }).toString();
+        window.location.href = `selection.html?${queryString}`;
+    };
     container.appendChild(button);
 }
 
-function comparePackages(locals: File[], remotes: File[]): void {
+function comparePackages(locals: File[], remotes: File[]): { localUpdated: File[], remoteUpdated: File[] } {
     const localUpdated: File[] = [];
     const remoteUpdated: File[] = [];
 
-    const processedLocals: Set<File> = new Set();
-    const processedRemotes: Set<File> = new Set();
+    const processedLocals: Set<string> = new Set();
+    const processedRemotes: Set<string> = new Set();
 
     for (const localFile of locals) {
-        console.log(`Local File: ${localFile.name}, Size: ${localFile.size} bytes`);
-
         const remoteFile = remotes.find(file => file.name === localFile.name);
         if (remoteFile) {
             if (localFile.lastModified > remoteFile.lastModified) {
@@ -47,22 +49,21 @@ function comparePackages(locals: File[], remotes: File[]): void {
             } else if (localFile.lastModified < remoteFile.lastModified) {
                 remoteUpdated.push(remoteFile);
             }
-            processedLocals.add(localFile);
-            processedRemotes.add(remoteFile);
+            processedLocals.add(localFile.name);
+            processedRemotes.add(remoteFile.name);
         } else {
             localUpdated.push(localFile);
-            processedLocals.add(localFile);
+            processedLocals.add(localFile.name);
         }
     }
 
-    remotes.filter(file => !processedRemotes.has(file));
     for (const remoteFile of remotes) {
-        console.log(`Remote File: ${remoteFile.name}, Size: ${remoteFile.size} bytes`);
-        remoteUpdated.push(remoteFile);
+        if (!processedRemotes.has(remoteFile.name)) {
+            remoteUpdated.push(remoteFile);
+        }
     }
 
-    console.log(`Remote: ${remoteUpdated.length}`);
-    console.log(`Local: ${localUpdated.length}`);
+    return { localUpdated, remoteUpdated };
 }
 
 document.getElementById('button')?.addEventListener('click', handlePackageComparison);

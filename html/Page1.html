@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page1</title>
+    <title>Package Comparison</title>
     <link rel="stylesheet" href="../css/Page1.css">
 </head>
 <body>
-    <h1>Page1</h1>
+    <h1>Package Comparison</h1>
     <form id="fileForm">
-        <label for="Package1">Select Package:</label>
+        <label for="Package1">Select Package 1:</label>
         <input type="file" id="Package1" webkitdirectory directory multiple />
 
-        <label for="Package2">Select Package:</label>
+        <label for="Package2">Select Package 2:</label>
         <input type="file" id="Package2" webkitdirectory directory multiple />
         <br/><br/>
 
         <button type="button" id="button">Show</button>
     </form>
-    <div id="result">
-        <div id="result1"></div>
-        <div id="result2"></div>
-    </div>
+    <div id="result1"></div>
+    <div id="result2"></div>
     <div id="middleButtonContainer"></div>
-    <div id="result3"></div>
-    <script type="module" src="../javatypescript/dist/Page1Show.js"></script> 
+
+    <script src="../javatypescript/dist/Page1Show.js" type="module"></script>
 </body>
 </html>
