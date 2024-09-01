@@ -1,0 +1,22 @@
+#result {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#result1, #result2 {
+    width: 45%;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 200px; /* Ensure the divs have some height even if they are empty */
+}
+
+#middleButtonContainer {
+    text-align: center;
+    margin-top: 20px; /* Space between the packages and the button */
+    display: flex;
+    justify-content: center;
+}

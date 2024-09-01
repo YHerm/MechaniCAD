@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Comparison</title>
+    <link rel="stylesheet" href="../css/Page1.css">
+</head>
+<body>
+    <h1>Package Comparison</h1>
+    <form id="fileForm">
+        <label for="Package1">Select Package 1:</label>
+        <button type="button" id="openDialog1">Select Package 1 Directory</button>
+        <input type="text" id="Package1" readonly />
+        
+        <br/><br/>
+        
+        <label for="Package2">Select Package 2:</label>
+        <button type="button" id="openDialog2">Select Package 2 Directory</button>
+        <input type="text" id="Package2" readonly />
+        
+        <br/><br/>
+        
+        <button type="button" id="compareButton">Compare Packages</button>
+        <br/><br/>
+        
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="middleButtonContainer"></div>
+    </form>
+    <script src="../javatypescript/dist/Page1Show.js" type="module"></script>
+</body>
+</html>
